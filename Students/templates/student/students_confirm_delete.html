@@ -1,0 +1,23 @@
+{% extends 'student/base.html' %}
+{% block content %}
+<div class="raw justify-content-center">
+    <div class="col-md-6">
+        <div class="card shadow-sm border-danger">
+            <div class="card-header bg-danger text-white">
+                <h4 class="mb-0">Confirm Delete Student</h4>
+            </div>
+            <div class="card-body">
+                <p>Are you sure you want to delete the student <strong>{{ student.name }}</strong>?</p>
+                <p class="text-muted">Roll Number: {{ student.rno}}</p>
+                <form method="post">
+                    {% csrf_token %}
+                    <button type="submit" class="btn btn-danger">yes,Delete</button>
+                    <a href="{% url 'student_list' %}" class="btn btn-secondary">Cancel</a>
+                </form>
+
+            </div>
+        </div>  
+    </div>
+
+</div>
+{% endblock %}  
